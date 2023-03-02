@@ -8,29 +8,32 @@ namespace MoodAnalyserProgragram
 {
     internal class MoodAnalyse
     {
-        public string message;
-        public string happy = "I am happy";
-        public string sad = "I am sad";
-
-
-        public MoodAnalyse(string message)
+        public class AnalyzeMood
         {
-            if (string.IsNullOrEmpty(message))
-            {
-                throw new ArgumentException("No message was passed");
-            }
-            this.message = message;
-        }
+            public string message;
+            public string happy = "I am happy";
+            public string sad = "I am sad";
 
-        public void Analyze()
-        {
-            if (this.message == happy)
+
+            public AnalyzeMood(string message)
             {
-                Console.WriteLine("Mood: Happy");
+                if (string.IsNullOrEmpty(message))
+                {
+                    throw new MoodAnalyzeException("Exception Raised: No message was passed to determine user's mood!");
+                }
+                this.message = message;
             }
-            else if (this.message == sad)
+
+            public void Analyze()
             {
-                Console.WriteLine("Mood: Sad");
+                if (this.message == happy)
+                {
+                    Console.WriteLine("Mood: Happy");
+                }
+                else if (this.message == sad)
+                {
+                    Console.WriteLine("Mood: Sad");
+                }
             }
         }
     }
