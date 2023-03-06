@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static MoodAnalyserProgragram.MoodAnalyse;
 
 namespace MoodAnalyserProgragram
 {
@@ -16,10 +15,10 @@ namespace MoodAnalyserProgragram
 
             try
             {
-                AnalyzeMood mood = new AnalyzeMood("");
+                MoodAnalyze mood = new MoodAnalyze("");
                 mood.Analyze();
             }
-            catch (MoodAnalyzeException ex)
+            catch (MoodAnalysisException ex)
             {
                 Console.WriteLine(ex.Message);
             }
